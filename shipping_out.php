@@ -1,7 +1,7 @@
 <?php
-    $first_name=filter_input(INPUT_POST,"first-name");
+    $first_name=filter_input(INPUT_POST,"first_name");
     $last_name=filter_input(INPUT_POST,"last_name");
-    $street_adress=filter_input(INPUT_POST,"street_adress");
+    $street_address=filter_input(INPUT_POST,"street_address");
     $city=filter_input(INPUT_POST,"city");
     $state=filter_input(INPUT_POST,"state");
     $zip_code=filter_input(INPUT_POST,"zip_code");
@@ -71,16 +71,16 @@
             <div>
                 <label>To:</label>
                 <ul>
-                    <li><?php $first_name." ".$last_name?></li>
-                    <li><?php $street_address?></li>
-                    <li><?php $city.", ".$state." ".$zip_code?></li>
+                    <li><?php echo $first_name." ".$last_name?></li>
+                    <li><?php echo $street_address?></li>
+                    <li><?php echo $city.", ".$state." ".$zip_code?></li>
                 </ul>
             </div>
 
 
-            <label>Package Dimensions:<?php $package_dimensions?> </label>
+            <label>Package Dimensions:<?php echo $package_dimensions?> </label>
 
-            <label>Shipping Company: <?php $ship_date?> </label>
+            <label>Shipping Company: <?php echo $ship_date?> </label>
 
             <label>Shipping Class: UPS</label>
 
@@ -88,7 +88,7 @@
 
             <!-- An image of the tracking number barcode -->
 
-            <label>Order Number <?php $order_number?></label>
+            <label>Order Number <?php echo $order_number?></label>
 
         
             
