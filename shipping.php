@@ -1,3 +1,17 @@
+<?php
+    $first_name = isset($first_name) ? $first_name : '';
+    $last_name = isset($last_name) ? $last_name : '';
+    $street_address = isset($street_address) ? $street_address : '';
+    $city = isset($city) ? $city : '';
+    $state = isset($state) ? $state : '';
+    $zip_code = isset($zip_code) ? $zip_code : '';
+    $ship_date = isset($ship_date) ? $ship_date : '';
+    $order_number = isset($order_number) ? $order_number : '';
+    $package_dimensions = isset($package_dimensions) ? $package_dimensions : '';
+    $declared_value = isset($declared_value) ? $declared_value : '';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
