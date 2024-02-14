@@ -58,13 +58,40 @@
             </nav>
         </header>
         <main>
-            <label>From:</label>
+            <div>
+                <label>From:</label>
+                <ul>
+                    <li>Sip & Stir</li>
+                    <li>21 Brick Ave</li>
+                    <li>Newark, NJ, 04894</li>
+                </ul>
 
-            <label>To:</label>
+            </div>
+            
+            <div>
+                <label>To:</label>
+                <ul>
+                    <li><?php $first_name." ".$last_name?></li>
+                    <li><?php $street_address?></li>
+                    <li><?php $city.", ".$state." ".$zip_code?></li>
+                </ul>
+            </div>
 
-            <label>package_dimensions:</label>
 
-            <label>package_dimensions:</label>
+            <label>Package Dimensions:<?php $package_dimensions?> </label>
+
+            <label>Shipping Company: <?php $ship_date?> </label>
+
+            <label>Shipping Class: UPS</label>
+
+            <label>Tracking Number: 47y58580945</label>
+
+            <!-- An image of the tracking number barcode -->
+
+            <label>Order Number <?php $order_number?></label>
+
+        
+            
 
             
 
