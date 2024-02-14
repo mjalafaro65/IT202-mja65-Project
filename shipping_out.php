@@ -28,6 +28,11 @@
         $error_message.="Enter a valid zipcode <br>";
 
     }
+
+    if($error_message != '') {
+        include('shipping.php');
+        exit();
+      }
 ?>
 
 <html lang="en">
@@ -37,6 +42,9 @@
         
 
         <title>Shipping</title>
+        <link rel="stylesheet" href="main.css">
+
+
 
     </head>
     <body>
