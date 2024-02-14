@@ -71,16 +71,16 @@
             <div>
                 <label>To:</label>
                 <ul>
-                    <li><?php echo $first_name." ".$last_name?></li>
-                    <li><?php echo $street_address?></li>
-                    <li><?php echo $city.", ".$state." ".$zip_code?></li>
+                    <li><?php echo $first_name." ".$last_name; ?></li>
+                    <li><?php echo $street_address; ?></li>
+                    <li><?php echo $city.", ".$state." ".$zip_code; ?></li>
                 </ul>
             </div>
 
 
-            <label>Package Dimensions:<?php echo $package_dimensions?> </label>
+            <label>Package Dimensions:<?php echo $package_dimensions; ?> </label>
 
-            <label>Shipping Company: <?php echo $ship_date?> </label>
+            <label>Shipping Company: <?php echo $ship_date; ?> </label>
 
             <label>Shipping Class: UPS</label>
 
@@ -88,7 +88,7 @@
 
             <!-- An image of the tracking number barcode -->
 
-            <label>Order Number <?php echo $order_number?></label>
+            <label>Order Number <?php echo $order_number; ?></label>
 
         
             
