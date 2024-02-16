@@ -23,11 +23,17 @@
 
     }
 
-    //validate zip code
-    if (strlen((string)$zip_code)!=4 && !is_numeric($zip_code)){
-        $error_message.="Enter a valid zipcode <br>";
+    //validate state
 
+
+    if($ship_date===null){
+        $error_message.="Enter a valid date <br>";
     }
+    //validate zip code
+    // if ((strlen((string)$zip_code))!=5){
+    //     $error_message.="Enter a valid zipcode <br>";
+
+    // }
 
     if($error_message != '') {
         include('shipping.php');
@@ -39,12 +45,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-
-        <title>Shipping</title>
         <link rel="stylesheet" href="main.css">
+        <title>Shipping</title>
 
 
+        <title>Sip & Stir</title>
+        <link rel="icon" href="images/tea-cup.png">
 
     </head>
     <body>
@@ -97,7 +103,13 @@
 
         </main>
         <footer>
-
+            <h2>Sip and Stir</h2>
+            <address>
+                Sip & Stir<br>
+                21 Brick Ave<br>
+                Newark, NJ, 04894<br>
+            </address>
+            <h5>@ Sip and Stir, 2024</h5>
         </footer>
     </body>
 </html>

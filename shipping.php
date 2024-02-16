@@ -17,20 +17,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sip  & Stir</title>
         <link rel="stylesheet" href="main.css">
-        <nav>
-            <a href="home.html">Home</a> |
-            <a href="shipping.php">Shipping</a>
-        </nav>
+        
+        <title>Sip & Stir</title>
+        <link rel="icon" href="images/tea-cup.png">
+        
+
     </head>
     <body>
         <header>
-            <h1>Shiping</h1>
+            <h1>Sip & Stir</h1>
             <nav>
                 <a href="home.html">Home</a> |
                 <a href="shipping.php">Shipping</a>
             </nav>
+            
+            <h1>Shipping</h1>
         </header>
         <main>
 
@@ -105,6 +107,13 @@
             </form>
         </main>
         <footer>
+            <h2>Sip and Stir</h2>
+            <address>
+                Sip & Stir<br>
+                21 Brick Ave<br>
+                Newark, NJ, 04894<br>
+            </address>
+            <h5>@ Sip and Stir, 2024</h5>
 
         </footer>
         

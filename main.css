@@ -1,6 +1,7 @@
 *{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin:4% 2%;
+    font-size: 14px;
 }
 
 body{
@@ -19,6 +20,12 @@ section {
 
 }
 
+nav{
+    margin: 10px;
+    border: 3px solid pink;
+    border-radius: 10px;
+    padding: 10px;
+}
 
 section input {
     width: 231px;
@@ -42,4 +49,26 @@ label {
 .button {
     background-color: black;
     color: azure;
+}
+
+.image_container {
+    
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px; 
+}
+
+.home_img {
+    flex-basis: 40%; 
+    margin: 10px;
+    height:auto;
+    width: 10%;
+}
+
+@media (max-width: 768px) {
+    .home_img {
+        flex-basis: calc(100% - 10px); /* Adjust according to your preference */
+    }
 }
