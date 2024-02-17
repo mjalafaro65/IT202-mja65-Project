@@ -1,4 +1,6 @@
+ 
 <?php
+    // if not set, set to nothing
     $first_name = isset($first_name) ? $first_name : '';
     $last_name = isset($last_name) ? $last_name : '';
     $street_address = isset($street_address) ? $street_address : '';
@@ -7,7 +9,9 @@
     $zip_code = isset($zip_code) ? $zip_code : '';
     $ship_date = isset($ship_date) ? $ship_date : '';
     $order_number = isset($order_number) ? $order_number : '';
-    $package_dimensions = isset($package_dimensions) ? $package_dimensions : '';
+    $package_dimension_l = isset($package_dimension_l) ? $package_dimension_l : '';
+    $package_dimension_w = isset($package_dimension_w) ? $package_dimension_w : '';
+    $package_dimension_h = isset($package_dimension_h) ? $package_dimension_h : '';
     $declared_value = isset($declared_value) ? $declared_value : '';
 
 ?>
@@ -27,19 +31,22 @@
     <body>
         <header>
             <h1>Sip & Stir</h1>
+
+            <!-- navigatinal bar -->
             <nav>
                 <a href="home.html">Home</a> |
                 <a href="shipping.php">Shipping</a>
             </nav>
             
-            <h1>Shipping</h1>
+            <h2>Shipping</h>
         </header>
         <main>
-
+            
+            <!-- display error message -->
             <?php
                 if(!empty($error_message)){
                     echo "<p>";
-                    echo $error_message;
+                    echo "Error: <br>".$error_message;
                     echo "</p>";
                 }
             ?>
@@ -47,55 +54,110 @@
             <form method="post" action="shipping_out.php">
                 <section>
                     <div>
-                        <label for="first_name">First Name:</label>
-                        <input type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($first_name); ?>">
+                        <label >First Name:</label>
+                        <input class="box" type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($first_name); ?>">
                     </div>
                     
                     <div>
-                        <label for="last_name">Last Name:</label>
-                        <input type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($last_name); ?>"> 
+                        <label >Last Name:</label>
+                        <input class="box" type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($last_name); ?>"> 
                     </div>
 
                     <div>
-                    <label for="street_address">Street Address:</label>
-                    <input type="text" name="street_address" value="<?php echo htmlspecialchars($street_address); ?>"> 
+                        <label >Street Address:</label>
+                        <input class="box"type="text" name="street_address" value="<?php echo htmlspecialchars($street_address); ?>"> 
                     </div>
 
                     <div>
-                    <label for="city">City:</label>
-                    <input type="text" name="city" value="<?php echo htmlspecialchars($city); ?>"> 
+                        <label >City:</label>
+                        <input class="box" type="text" name="city" value="<?php echo htmlspecialchars($city); ?>"> 
                     </div>
 
                     <div>
-                    <label for="state">State:</label>
-                    <input type="text" name="state" value="<?php echo htmlspecialchars($state); ?>">     
+                        <label>State:</label>
+                        <select class="box" id="select_state" name="state">
+                            <option value= "<?php echo $state;?>"><?php echo $state;?></option>
+                            <option value="AL">AL</option>
+                            <option value="AK">AK</option>
+                            <option value="AZ">AZ</option>
+                            <option value="AR">AR</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="IA">IA</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="ME">ME</option>
+                            <option value="MD">MD</option>
+                            <option value="MA">MA</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MS">MS</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NE">NE</option>
+                            <option value="NV">NV</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NY">NY</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VT">VT</option>
+                            <option value="VA">VA</option>
+                            <option value="WA">WA</option>
+                            <option value="WV">WV</option>
+                            <option value="WI">WI</option>
+                            <option value="WY">WY</option>
+                        </select>
                     </div>
 
                     <div>
-                    <label for="zip_code">Zip Code:</label>
-                    <input type="text" name="zip_code" value="<?php echo htmlspecialchars($zip_code); ?>"> 
+                        <label >Zip Code:</label>
+                        <input class="box"type="text" name="zip_code" value="<?php echo htmlspecialchars($zip_code); ?>"> 
                     </div>
 
-                    <div id="ship_date">
-                    <label >Ship Date:</label>
-                    <input type="date"  name="ship_date" value="<?php echo htmlspecialchars($ship_date); ?>"> 
+                    <div>
+                        <label >Ship Date:</label>
+                        <input class="box" type="date"  name="ship_date" value="<?php echo htmlspecialchars($ship_date); ?>"> 
                     </div>
 
 
                     <div>
-                    <label>Order Number:</label>
-                    <input type="text" name="order_number" value="<?php echo htmlspecialchars($order_number); ?>"> 
+                        <label>Order Number:</label>
+                        <input class="box" type="text" name="order_number" value="<?php echo htmlspecialchars($order_number); ?>"> 
                     </div>
 
                     <div>
-                    <label for="package_dimensions">Package Dimensions:</label>
-                    <input type="text"  name="package_dimensions" value="<?php echo htmlspecialchars($package_dimensions); ?>"> 
+                        <label>Package Dimensions(inches):</label>
+                        <input class="box-dimension" type="text" placeholder="length" name="package_dimension_l" value="<?php echo htmlspecialchars($package_dimension_l); ?>"> 
+                        <input class="box-dimension " type="text" placeholder="width" name="package_dimension_w" value="<?php echo htmlspecialchars($package_dimension_w); ?>"> 
+                        <input class="box-dimension" type="text"  placeholder="height" name="package_dimension_h" value="<?php echo htmlspecialchars($package_dimension_h); ?>"> 
+                    
                     </div>
                     
                     
                     <div>
-                    <label for="declared_value">Declared Value:</label>
-                    <input type="text"  name="declared_value" value="<?php echo htmlspecialchars($declared_value); ?>"> 
+                        <label >Declared Value:</label>
+                        <input class="box" type="text"  name="declared_value" value="<?php echo htmlspecialchars($declared_value); ?>"> 
                     </div>
 
                     <span class="button_container">
@@ -106,8 +168,10 @@
             
             </form>
         </main>
+
+        <!-- footter with tittle adress and extra -->
         <footer>
-            <h2>Sip and Stir</h2>
+            <h1>Sip and Stir</h1>
             <address>
                 Sip & Stir<br>
                 21 Brick Ave<br>

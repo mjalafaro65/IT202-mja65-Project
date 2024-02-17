@@ -7,38 +7,49 @@
     $zip_code=filter_input(INPUT_POST,"zip_code");
     $ship_date=filter_input(INPUT_POST,"ship_date");
     $order_number=filter_input(INPUT_POST,"order_number",FILTER_VALIDATE_INT);
-    $package_dimensions=filter_input(INPUT_POST,"package_dimensions");
+    $package_dimension_l=filter_input(INPUT_POST,"package_dimension_l",FILTER_VALIDATE_INT);
+    $package_dimension_w=filter_input(INPUT_POST,"package_dimension_w", FILTER_VALIDATE_INT);
+    $package_dimension_h=filter_input(INPUT_POST,"package_dimension_h",FILTER_VALIDATE_INT);
     $declared_value=filter_input(INPUT_POST,"declared_value",FILTER_VALIDATE_FLOAT);
 
     $error_message='';
 
     //validate declared value 
     if($declared_value>=1000){
-        $error_message.='Declared value must be less than $1, 000<br>';
+        $error_message.='Declared value must be less than $1,000<br>';
     }
 
     //validate package dimensions
-    if ($package_dimensions>=36){
-        $error_message.="No dimension of package can be more then 36 inches<br>";
+    if ($package_dimension_l>=36 || $package_dimension_w>=36 ||$package_dimension_h>=36){
+        $error_message.="Dimensions of package can't be more than 36 inches<br>";
+
+    }
+
+    //validate date
+    if(empty($ship_date)){
+        $error_message.="Enter a ship date <br>";
 
     }
 
     //validate state
-
-
-    if($ship_date===null){
-        $error_message.="Enter a valid date <br>";
+    if(empty($state)){
+        $error_message.="Enter a state <br>";
     }
-    //validate zip code
-    // if ((strlen((string)$zip_code))!=5){
-    //     $error_message.="Enter a valid zipcode <br>";
 
-    // }
+    //validate zip code
+    if (strlen($zip_code)!= 5 || !is_numeric($zip_code)){
+        $error_message.="Enter valid ship zip code <br>";
+
+    }
 
     if($error_message != '') {
         include('shipping.php');
         exit();
       }
+
+    //formatting
+    $format_value="$".$declared_value;
+    $format_dimensions=$package_dimension_l.'" X '.$package_dimension_w.'" X '.$package_dimension_h.'"';
 ?>
 
 <html lang="en">
@@ -54,6 +65,8 @@
 
     </head>
     <body>
+
+        <div>
         <header>
             <h1>Sip & Stir</h1>
             <nav>
@@ -62,48 +75,59 @@
                 <!--go to shippping page-->
                 <a href="shipping.php">Shipping</a>
             </nav>
+            <h2>Shipping Label</h2>
         </header>
         <main>
-            <div>
-                <label>From:</label>
-                <ul>
-                    <li>Sip & Stir</li>
-                    <li>21 Brick Ave</li>
-                    <li>Newark, NJ, 04894</li>
-                </ul>
+            <div class="shipping_label">
+                <div id="frombox">
+                    <h3>From:</h3>
+                    <ul class="shipping_label_ul">
+                        <li>Sip & Stir</li>
+                        <li>21 Brick Ave</li>
+                        <li>Newark, NJ, 04894</li>
+                    </ul>
+
+                </div>
+            
+                <div id="tobox">
+                    <h3>To:</h3>
+                    <ul class="shipping_label_ul">
+                        <li><?php echo $first_name." ".$last_name; ?></li>
+                        <li><?php echo $street_address; ?></li>
+                        <li><?php echo $city.", ".$state." ".$zip_code; ?></li>
+                    </ul>
+                </div>
+
+                <div id="box3">
+
+                    <h3>Package Dimensions: <?php echo $format_dimensions; ?> </h3>
+
+                    <h3>Package Declared Value: <?php echo $format_value; ?> </h3>
+
+                    <h3>Shipping Date: <?php echo $ship_date; ?> </h3>
+
+                    <h3>Shipping Campany: UPS</h3>
+
+                    <h3 >Shipping Class: Next Day Air</h3>
+
+                </div>
+            
+                <h3 class="middle">Tracking Number: 47A585E860945</h3>
+
+                <figure>
+                    <img src="images\barcode.png" alt="barode">
+                </figure>
+
+                <h3 class="middle">Order Number: <?php echo $order_number; ?></h3>
 
             </div>
-            
-            <div>
-                <label>To:</label>
-                <ul>
-                    <li><?php echo $first_name." ".$last_name; ?></li>
-                    <li><?php echo $street_address; ?></li>
-                    <li><?php echo $city.", ".$state." ".$zip_code; ?></li>
-                </ul>
-            </div>
 
 
-            <label>Package Dimensions:<?php echo $package_dimensions; ?> </label>
-
-            <label>Shipping Company: <?php echo $ship_date; ?> </label>
-
-            <label>Shipping Class: UPS</label>
-
-            <label>Tracking Number: 47y58580945</label>
-
-            <!-- An image of the tracking number barcode -->
-
-            <label>Order Number <?php echo $order_number; ?></label>
-
-        
-            
-
-            
+                
 
         </main>
         <footer>
-            <h2>Sip and Stir</h2>
+            <h1>Sip and Stir</h1>
             <address>
                 Sip & Stir<br>
                 21 Brick Ave<br>
