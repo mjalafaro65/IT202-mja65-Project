@@ -69,18 +69,17 @@
         <div>
         <header>
             <h1>Sip & Stir</h1>
-            <nav>
-                <!--reoload this page-->
-                <a href="home.html">Home</a>| 
-                <!--go to shippping page-->
-                <a href="shipping.php">Shipping</a>
+            <nav class="mainNav">
+                <a href="home.html">Home</a> |
+                <a href="shipping.php">Shipping</a> |
+                <a href="product.php">Products</a>
             </nav>
             <h2>Shipping Label</h2>
         </header>
         <main>
             <div class="shipping_label">
                 <div id="frombox">
-                    <h3>From:</h3>
+                    <h3 class="label_headers">From:</h3>
                     <ul class="shipping_label_ul">
                         <li>Sip & Stir</li>
                         <li>21 Brick Ave</li>
@@ -90,7 +89,7 @@
                 </div>
             
                 <div id="tobox">
-                    <h3>To:</h3>
+                    <h3 class="label_headers">To:</h3>
                     <ul class="shipping_label_ul">
                         <li><?php echo $first_name." ".$last_name; ?></li>
                         <li><?php echo $street_address; ?></li>
@@ -100,25 +99,25 @@
 
                 <div id="box3">
 
-                    <h3>Package Dimensions: <?php echo $format_dimensions; ?> </h3>
+                    <h3 class="label_headers">Package Dimensions: <?php echo $format_dimensions; ?> </h3>
 
-                    <h3>Package Declared Value: <?php echo $format_value; ?> </h3>
+                    <h3 class="label_headers">Package Declared Value: <?php echo $format_value; ?> </h3>
 
-                    <h3>Shipping Date: <?php echo $ship_date; ?> </h3>
+                    <h3 class="label_headers">Shipping Date: <?php echo $ship_date; ?> </h3>
 
-                    <h3>Shipping Campany: UPS</h3>
+                    <h3 class="label_headers">Shipping Campany: UPS</h3>
 
-                    <h3 >Shipping Class: Next Day Air</h3>
+                    <h3 class="label_headers">Shipping Class: Next Day Air</h3>
 
                 </div>
             
-                <h3 class="middle">Tracking Number: 47A585E860945</h3>
+                <h3 class="middle" class="label_headers">Tracking Number: 47A585E860945</h3>
 
                 <figure>
                     <img src="images\barcode.png" alt="barode">
                 </figure>
 
-                <h3 class="middle">Order Number: <?php echo $order_number; ?></h3>
+                <h3 class="middle" class="label_headers">Order Number: <?php echo $order_number; ?></h3>
 
             </div>
 

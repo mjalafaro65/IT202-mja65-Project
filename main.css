@@ -106,7 +106,7 @@ header{
     padding-bottom: 30px;
 }
 
-nav{
+.mainNav{
     margin: 10px auto;
     border: 3px solid #b09a65;
     border-radius: 10px;
@@ -129,7 +129,7 @@ header h2{
 
 nav a {
     text-decoration: none;
-    color: #3b3227; 
+    color: #000000; 
 }
 
 nav a:hover  {
@@ -137,7 +137,7 @@ nav a:hover  {
 }
 
 nav a:visited{
-    color: #3b3227; 
+    color: #000000; 
 }
 
 /* main content */
@@ -192,14 +192,14 @@ footer h5{
     line-height: 20px; 
     background-color: white;
 }
-/* h3 only used in label */
-h3 {
+
+.label_headers {
     font-weight: bold;
     font-size: 16px;
     margin: 7px 0px;
 }
 
-.shipping_label_ul {
+.shipping_label_ul{
     list-style-type: none; 
     padding: 0; 
     margin: 0;
@@ -247,5 +247,51 @@ h3 {
 .middle{
     text-align: center;
 }
+
+
+/* products page */
+.categories_li{
+    margin: 5% auto 7%;
+    list-style-type: none; 
+    line-height: 40px;
+    display: block;
+    text-align: center;
+  
+
+}
+nav li{
+    display: inline;
+    padding: auto;
+}
+
+.product_subheaders{
+    font-size: 20px;
+}
+
+/* product table */
+
+th,
+td {
+  border: 1px solid #554328;
+  padding: 8px 10px;
+}
+
+th{
+    background-color: #3b3227;
+    color: white;
+    text-align: center;
+    border:5px solid #554328;
+}
+
+td{
+    border:5px solid #554328;
+    text-align: center;
+    margin: 0;
+    color: black;
+}
+
+
+
+
 
 
