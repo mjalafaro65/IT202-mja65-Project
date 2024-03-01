@@ -33,9 +33,10 @@
             <h1>Sip & Stir</h1>
 
             <!-- navigatinal bar -->
-            <nav>
+            <nav class="mainNav">
                 <a href="home.html">Home</a> |
-                <a href="shipping.php">Shipping</a>
+                <a href="shipping.php">Shipping</a> |
+                <a href="product.php">Products</a>
             </nav>
             
             <h2>Shipping</h>
