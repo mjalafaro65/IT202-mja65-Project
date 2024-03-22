@@ -1,5 +1,8 @@
-<!-- Product Page: This page will display the category name, code, product name, description and price of all items stored in the database by making an SQL query from PHP code. This page should NOT display the category ID, product ID or dateCreated values, those are database internal values. -->
-
+<!-- Maria Alfaro
+mja65@njit.edu
+3/1/24
+It202-004
+Phase02  -->
 
 <?php
     require_once('njit_database.php');
@@ -58,7 +61,8 @@
         <nav class="mainNav">
             <a href="home.html">Home</a> |
             <a href="shipping.php">Shipping</a> |
-            <a href="product.php">Products</a>
+            <a href="product.php">Products</a>  |
+            <a href="create.php">Create</a>
         </nav>
         <h2>Product list</h2>
     </header>

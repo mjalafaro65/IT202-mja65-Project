@@ -1,3 +1,8 @@
+<!-- Maria Alfaro
+mja65@njit.edu
+3/1/24
+It202-004
+Phase02  -->
 <?php
     $first_name=filter_input(INPUT_POST,"first_name");
     $last_name=filter_input(INPUT_POST,"last_name");
@@ -72,7 +77,8 @@
             <nav class="mainNav">
                 <a href="home.html">Home</a> |
                 <a href="shipping.php">Shipping</a> |
-                <a href="product.php">Products</a>
+                <a href="product.php">Products</a> |
+                <a href="create.php">Create</a>
             </nav>
             <h2>Shipping Label</h2>
         </header>

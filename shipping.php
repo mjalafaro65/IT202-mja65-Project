@@ -1,18 +1,23 @@
- 
+ <!-- Maria Alfaro
+mja65@njit.edu
+3/1/24
+It202-004
+Phase02  -->
 <?php
     // if not set, set to nothing
-    $first_name = isset($first_name) ? $first_name : '';
-    $last_name = isset($last_name) ? $last_name : '';
-    $street_address = isset($street_address) ? $street_address : '';
-    $city = isset($city) ? $city : '';
-    $state = isset($state) ? $state : '';
-    $zip_code = isset($zip_code) ? $zip_code : '';
-    $ship_date = isset($ship_date) ? $ship_date : '';
-    $order_number = isset($order_number) ? $order_number : '';
-    $package_dimension_l = isset($package_dimension_l) ? $package_dimension_l : '';
-    $package_dimension_w = isset($package_dimension_w) ? $package_dimension_w : '';
-    $package_dimension_h = isset($package_dimension_h) ? $package_dimension_h : '';
-    $declared_value = isset($declared_value) ? $declared_value : '';
+
+    if( !isset($first_name)) { $first_name = ''; }
+    if( !isset($last_name)) { $last_name = ''; }
+    if( !isset($street_address)) { $street_address = ''; }
+    if( !isset($city)) { $city = ''; }
+    if( !isset($state)) { $state = ''; }
+    if( !isset($zip_code)) { $zip_code = ''; }
+    if( !isset($ship_date)) { $ship_date = ''; }
+    if( !isset($order_number)) { $order_number = ''; }
+    if( !isset($package_dimension_l)) { $package_dimension_l = ''; }
+    if( !isset($package_dimension_w)) { $package_dimension_w = ''; }
+    if( !isset($package_dimension_h)) { $package_dimension_h = ''; }
+    if( !isset($declared_value)) { $declared_value = ''; }
 
 ?>
 
@@ -36,7 +41,8 @@
             <nav class="mainNav">
                 <a href="home.html">Home</a> |
                 <a href="shipping.php">Shipping</a> |
-                <a href="product.php">Products</a>
+                <a href="product.php">Products</a> |
+                <a href="create.php">Create</a>
             </nav>
             
             <h2>Shipping</h>
@@ -56,12 +62,12 @@
                 <section>
                     <div>
                         <label >First Name:</label>
-                        <input class="box" type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($first_name); ?>">
+                        <input class="box" type="text"  name="first_name" value="<?php echo htmlspecialchars($first_name); ?>">
                     </div>
                     
                     <div>
                         <label >Last Name:</label>
-                        <input class="box" type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($last_name); ?>"> 
+                        <input class="box" type="text"  name="last_name" value="<?php echo htmlspecialchars($last_name); ?>"> 
                     </div>
 
                     <div>
