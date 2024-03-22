@@ -1,8 +1,9 @@
- <!-- Maria Alfaro
-mja65@njit.edu
-3/1/24
+<!-- Maria Alfaro
+3/22/24
 It202-004
-Phase02  -->
+Phase03
+mja65@njit.edu
+-->
 <?php  
     require_once('njit_database.php');
 
@@ -67,10 +68,58 @@ Phase02  -->
     $success=$statement->execute();
     $statement->closeCursor();
 
-    echo"<p>Your insert statement status is $success</p>";
+    $success_message="<p>Success you have entered  $success product </p>";
     
        
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
 
-<p><a href="product.php">View product List</a></p>
+    <title>Sip & Stir</title>
+    <link rel="icon" href="images/tea-cup.png">
+
+</head>
+<body>
+    <header>
+        <h1>Sip & Stir</h1>
+        <nav class="mainNav">
+            <a href="home.html">Home</a> |
+            <a href="shipping.php">Shipping</a> |
+            <a href="product.php">Products</a>  |
+            <a href="create.php">Create</a>
+        </nav>
+        <h2>Product list</h2>
+    </header>
+    <main>
+        
+        <?php
+            echo "<br>";
+            echo $success_message;
+         ?>
+        
+        <p><a href="product.php">View product List</a></p>
+
+
+       
+
+    </main>
+    <footer>
+        <h1>Sip and Stir</h1>
+        <address>
+            Sip & Stir<br>
+            21 Brick Ave<br>
+            Newark, NJ, 04894<br>
+        </address>
+        <h5>@ Sip and Stir, 2024</h5>
+        
+    </footer>
+
+</body>
+
+</html>
+
