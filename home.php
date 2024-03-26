@@ -23,9 +23,17 @@ mja65@njit.edu
         <h1>Sip & Stir</h1>
         <nav class="mainNav">
             <a href="home.html">Home</a> |
-            <a href="shipping.php">Shipping</a> |
             <a href="product.php">Products</a> |
-            <a href="create.php">Create</a>
+
+
+            <?php
+               if(isset($_SESSION['is_valid_admin'])){
+                echo '<a href="shipping.php">Shipping</a> |';
+                echo '<a href="create.php">Create</a>';
+               }
+
+            ?>
+            
         </nav>
     </header>
     <main>
