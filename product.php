@@ -7,6 +7,7 @@ mja65@njit.edu
 
 <?php
     require_once('njit_database.php');
+    $db = getDB();
 
     $accessoryCategory_id= filter_input(INPUT_GET, 'accessoryCategory_id', FILTER_VALIDATE_INT);
 

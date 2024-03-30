@@ -1,6 +1,7 @@
 <?php
-
-    function addSitStirManager($email, $password, $firstName, $lastName, $dateCreated) {
+    require_once('njit_database.php');
+    
+    function addSitStirManager($email, $password, $firstName, $lastName) {
         $db = getDB();
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $query = 'INSERT INTO SipStirManagers (emailAddress, password, firstName, lastName, dateCreated)
@@ -12,5 +13,8 @@
         $statement->bindValue(':lastName', $lastName);
         $statement->execute();
         $statement->closeCursor();
-     }
+        
+    }
+
+     
 ?>

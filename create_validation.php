@@ -6,6 +6,7 @@ mja65@njit.edu
 -->
 <?php  
     require_once('njit_database.php');
+    $db = getDB(); 
 
     $accessoryCategory_id=filter_input(INPUT_POST, 'accessoryCategory_id', FILTER_VALIDATE_INT);
     $code=filter_input(INPUT_POST,'code');
@@ -25,7 +26,7 @@ mja65@njit.edu
 
     }
 
-    if($price>350){
+    if($price>350 || $price<0){
         $error.="Product price can't exceed $350 <br>";
     }
 

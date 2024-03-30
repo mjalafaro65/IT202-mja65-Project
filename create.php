@@ -13,6 +13,7 @@ mja65@njit.edu
     
 
     require_once('njit_database.php');
+    $db = getDB();
 
     $query = 'SELECT *FROM accessoryCategories ORDER BY accessoryCategoryID';
     $statement = $db->prepare($query);
