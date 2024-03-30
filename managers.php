@@ -4,7 +4,7 @@
     function addSitStirManager($email, $password, $firstName, $lastName) {
         $db = getDB();
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $query = 'INSERT INTO SipStirManagers (emailAddress, password, firstName, lastName, dateCreated)
+        $query = 'INSERT INTO sipStirManagers (emailAddress, password, firstName, lastName, dateCreated)
                   VALUES (:email, :password, :firstName , :lastName, NOW())';
         $statement = $db->prepare($query);
         $statement->bindValue(':email', $email);
@@ -15,6 +15,12 @@
         $statement->closeCursor();
         
     }
+
+    addSitStirManager('mroberts@example.com','P@ssw0rd456','Jennifer', 'Smith');
+    addSitStirManager('jsmith@example.com','Qwerty123!','Michael', 'Roberts');
+    addSitStirManager('aadams@example.com','Sunshine789$','Amanda', 'Adams');
+
+
 
      
 ?>
