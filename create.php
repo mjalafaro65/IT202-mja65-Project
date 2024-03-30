@@ -82,7 +82,7 @@ mja65@njit.edu
 
                 <div>
                     <label>Description:</label>
-                    <input class="box" type="text" name="description" value="<?php echo htmlspecialchars($description);?>">
+                    <textarea class="box" type="text" name="description" value="<?php echo htmlspecialchars($description);?>"></textarea>
                 </div>
                 
                 <div>
