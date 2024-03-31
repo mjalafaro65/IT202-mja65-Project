@@ -4,7 +4,9 @@ It202-004
 Phase03
 mja65@njit.edu
 -->
-<?php  
+<?php 
+    
+    require_once('authenticate.php');
     require_once('njit_database.php');
     $db = getDB(); 
 
@@ -98,7 +100,7 @@ mja65@njit.edu
                 echo '<a class="log"  href="login.php">Login</a>';
                }else{
                 echo '| <a href="shipping.php">Shipping</a> |';
-                echo '<a href="create.php">Create</a>';
+                echo '<a href="create.php">Create</a> |';
                 echo '<a class="log" href="logout.php">Logout</a>';
                }
 

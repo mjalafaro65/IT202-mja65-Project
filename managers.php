@@ -1,4 +1,5 @@
 <?php
+
     require_once('njit_database.php');
     
     function addSitStirManager($email, $password, $firstName, $lastName) {

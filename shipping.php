@@ -5,6 +5,10 @@ Phase03
 mja65@njit.edu
 -->
 <?php
+
+
+    require_once('authenticate.php');
+
     // if not set, set to nothing
 
     if( !isset($first_name)) { $first_name = ''; }

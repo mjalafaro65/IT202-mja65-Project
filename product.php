@@ -6,6 +6,7 @@ mja65@njit.edu
 -->
 
 <?php
+    require_once('authenticate.php');
     require_once('njit_database.php');
     $db = getDB();
 

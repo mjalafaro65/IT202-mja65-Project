@@ -32,29 +32,31 @@ if (!isset($login_message)) {
             <?php
                if(!isset($_SESSION['is_valid_admin'])){
                 
-                echo '<a class="log"  href="login.php">Login</a>';
+                echo '<a class="log" href="login.php">Login</a>';
                }else{
                 echo '| <a href="shipping.php">Shipping</a> |';
-                echo '<a href="create.php">Create</a>';
+                echo '<a href="create.php">Create</a> |';
                 echo '<a class="log" href="logout.php">Logout</a>';
                }
 
             ?>
         </nav>
+        <h2>Login</h2>
     </header>
     <main>
-       
-    <h1>Login</h1>
+        <section>
             <form action="authenticate.php" method="post">
-                <label>Email:</label>
-                <input type="text" name="email" value="">
-                <br>
-                <label>Password:</label>
-                <input type="password" name="password" value="">
-                <br>
-                <input type="submit" value="Login">
+                    <label>Email:</label>
+                    <input type="text" name="email" value="">
+                    <br>
+                    <label>Password:</label>
+                    <input type="password" name="password" value="">
+                    <br>
+                    <input type="submit" value="Login">
             </form>
-            <p><?php echo $login_message; ?></p>
+                <p><?php echo $login_message; ?></p>
+        </section>
+            
   
     </main>
     <footer>

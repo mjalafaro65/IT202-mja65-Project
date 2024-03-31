@@ -5,30 +5,34 @@ Phase03
 mja65@njit.edu
 -->
 <?php
-
-    require_once('admin.php');
     session_start();
+    require_once('admin.php');
 
-    $email = filter_input(INPUT_POST, 'email');
-    $password = filter_input(INPUT_POST, 'password');
+    if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin'] === true) {
+        // if already logged, proceed to any page
+    } else {
+        // if not logged
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+            $password = $_POST['password'];
 
-    if (is_valid_admin_login($email, $password)) {
-        //create an entry in the $_SESSION super global array
-        $_SESSION['is_valid_admin'] = true;
-        // redirect logged in user to default page
-        echo "<p>You have successfully logged in.</p>";
-
-//test for: email passsword 
-    }else {
-        if ($email == NULL && $password == NULL) {
-            $login_message ='Enter credentials';
-
-        } else {
-            $login_message = 'Invalid credentials.';
+            // Validate login credentials
+            if (is_valid_admin_login($email, $password)) {
+                // Authentication successful
+                $_SESSION['is_valid_admin'] = true;
+                include('home.php');
+            } else {
+                  // Authentication failed-> error message
+                if ($email == NULL && $password == NULL) {
+                    $login_message ='Enter credentials';
+        
+                } else {
+                    $login_message = 'Invalid credentials.';
+                }
+              
+            }
         }
-
-        include('login.php');
-
     }
+
 
 ?>

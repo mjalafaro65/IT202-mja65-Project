@@ -5,6 +5,9 @@ Phase03
 mja65@njit.edu
 -->
 <?php
+    
+    require_once('authenticate.php');
+
     $first_name=filter_input(INPUT_POST,"first_name");
     $last_name=filter_input(INPUT_POST,"last_name");
     $street_address=filter_input(INPUT_POST,"street_address");

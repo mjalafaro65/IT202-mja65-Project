@@ -5,7 +5,9 @@ Phase03
 mja65@njit.edu
 -->
 
-
+<?php
+    require_once('authenticate.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +28,14 @@ mja65@njit.edu
             <a href="product.php">Products</a> 
 
             <?php
+                
+
                if(!isset($_SESSION['is_valid_admin'])){
                 
-                echo '<a class="log"  href="login.php">Login</a>';
+                echo '<a class="log" href="login.php">Login</a>';
                }else{
                 echo '| <a href="shipping.php">Shipping</a> |';
-                echo '<a href="create.php">Create</a>';
+                echo '<a href="create.php">Create</a>' ;
                 echo '<a class="log" href="logout.php">Logout</a>';
                }
 

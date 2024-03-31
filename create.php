@@ -6,13 +6,17 @@ mja65@njit.edu
 -->
 
 <?php
+    require_once('authenticate.php');
+    require_once('njit_database.php');
+
     if( !isset($price)) { $price = ''; }
     if( !isset($code)) { $code = ''; }
     if( !isset($description)) { $description = ''; }
     if( !isset($name)) { $name = ''; }
     
+    
+    
 
-    require_once('njit_database.php');
     $db = getDB();
 
     $query = 'SELECT *FROM accessoryCategories ORDER BY accessoryCategoryID';
@@ -50,7 +54,7 @@ mja65@njit.edu
                 echo '<a class="log"  href="login.php">Login</a>';
                }else{
                 echo '| <a href="shipping.php">Shipping</a> |';
-                echo '<a href="create.php">Create</a>';
+                echo '<a href="create.php">Create</a> ';
                 echo '<a class="log" href="logout.php">Logout</a>';
                }
 
