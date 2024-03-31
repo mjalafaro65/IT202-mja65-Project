@@ -61,17 +61,27 @@ mja65@njit.edu
     <header>
         <h1>Sip & Stir</h1>
         <nav class="mainNav">
-            <a href="home.html">Home</a> |
-            <a href="shipping.php">Shipping</a> |
-            <a href="product.php">Products</a>  |
-            <a href="create.php">Create</a>
+            <a href="home.php">Home</a> |
+            <a href="product.php">Products</a> 
+
+            <?php
+               if(!isset($_SESSION['is_valid_admin'])){
+                
+                echo '<a class="log"  href="login.php">Login</a>';
+               }else{
+                echo '| <a href="shipping.php">Shipping</a> |';
+                echo '<a href="create.php">Create</a>';
+                echo '<a class="log" href="logout.php">Logout</a>';
+               }
+
+            ?>
         </nav>
         <h2>Product list</h2>
     </header>
     <main>
         
         <section>
-            <h3 class="product_subheaders">Categories: </h2>
+            <h3 class="product_subheaders">Categories:</h2>
             <nav class="categories_li">
                 <?php foreach($categories as $category): ?>
                 <li>

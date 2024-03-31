@@ -40,11 +40,21 @@ mja65@njit.edu
 
             <!-- navigatinal bar -->
             <nav class="mainNav">
-                <a href="home.html">Home</a> |
-                <a href="shipping.php">Shipping</a> |
-                <a href="product.php">Products</a> |
-                <a href="create.php">Create</a>
-            </nav>
+            <a href="home.php">Home</a> |
+            <a href="product.php">Products</a> 
+
+            <?php
+               if(!isset($_SESSION['is_valid_admin'])){
+                
+                echo '<a class="log"  href="login.php">Login</a>';
+               }else{
+                echo '| <a href="shipping.php">Shipping</a> |';
+                echo '<a href="create.php">Create</a>';
+                echo '<a class="log" href="logout.php">Logout</a>';
+               }
+
+            ?>
+        </nav>
             
             <h2>Shipping</h>
         </header>
