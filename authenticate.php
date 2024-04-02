@@ -29,7 +29,7 @@ mja65@njit.edu
                 } else {
                     $login_message = 'Invalid credentials.';
                 }
-              
+                include('login.php');              
             }
         }
     }

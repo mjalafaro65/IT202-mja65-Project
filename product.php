@@ -68,11 +68,11 @@ mja65@njit.edu
             <?php
                if(!isset($_SESSION['is_valid_admin'])){
                 
-                echo '<a class="log"  href="login.php">Login</a>';
+                echo '<a class="log"  href="login.php">log in</a>';
                }else{
                 echo '| <a href="shipping.php">Shipping</a> |';
                 echo '<a href="create.php">Create</a>';
-                echo '<a class="log" href="logout.php">Logout</a>';
+                echo '<a class="log" href="logout.php">log out</a>';
                }
 
             ?>
