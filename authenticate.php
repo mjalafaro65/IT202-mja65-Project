@@ -8,19 +8,36 @@ mja65@njit.edu
     session_start();
     require_once('admin.php');
 
+
+
     if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin'] === true) {
         // if already logged, proceed to any page
     } else {
         // if not logged
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-            $password = $_POST['password'];
+        $email = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
 
             // Validate login credentials
             if (is_valid_admin_login($email, $password)) {
                 // Authentication successful
+                $db = getDB();
+                $queryCategory='SELECT firstName, lastName FROM sipStirManagers WHERE  emailAddress =:emailAddress';
+                $statement1=$db->prepare($queryCategory);
+                $statement1->bindValue(':emailAddress', $email);
+                $statement1->execute();
+                $category=$statement1->fetch();
+                $firstName=$category['firstName'];
+                $lastName=$category['lastName'];
+                $statement1->closeCursor();
+
+
                 $_SESSION['is_valid_admin'] = true;
-                include('home.php');
+                $_SESSION['email'] = $email;
+                $_SESSION['firstName'] = $firstName;
+                $_SESSION['lastName'] = $lastName;
+                
+                include_once('home.php');
+
             } else {
                   // Authentication failed-> error message
                 if ($email == NULL && $password == NULL) {
@@ -29,9 +46,9 @@ mja65@njit.edu
                 } else {
                     $login_message = 'Invalid credentials.';
                 }
-                include('login.php');              
+                include('login.php');             
             }
-        }
+            
     }
 
 

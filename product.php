@@ -6,9 +6,18 @@ mja65@njit.edu
 -->
 
 <?php
-    require_once('authenticate.php');
+    session_start();
     require_once('njit_database.php');
     $db = getDB();
+
+
+
+
+    //welcome message
+
+
+
+
 
     $accessoryCategory_id= filter_input(INPUT_GET, 'accessoryCategory_id', FILTER_VALIDATE_INT);
 
@@ -61,6 +70,14 @@ mja65@njit.edu
 <body>
     <header>
         <h1>Sip & Stir</h1>
+        <?php
+        if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
+        $email=$_SESSION['email'];
+        $firstName=$_SESSION['firstName'];
+        $lastName=$_SESSION['lastName'];
+        echo "<h2 id='welcome_message'> Welcome $firstName $lastName ($email)</h2>";
+        }
+        ?>
         <nav class="mainNav">
             <a href="home.php">Home</a> |
             <a href="product.php">Products</a> 
@@ -82,7 +99,7 @@ mja65@njit.edu
     <main>
         
         <section>
-            <h3 class="product_subheaders">Categories:</h2>
+            <h3 class="subheaders3">Categories:</h2>
             <nav class="categories_li">
                 <?php foreach($categories as $category): ?>
                 <li>
@@ -108,6 +125,13 @@ mja65@njit.edu
                     <td><?php echo $accessory['description'];?></td>
                 <?php $priceFormatted="$".$accessory['price'];?>
                     <td><?php echo $priceFormatted?></td>
+                    <td >
+                        <form id="product_form" action="deleteProduct.php" method="post">
+                            <input type="hidden" name="accessory_id" value="<?php echo $accessory['accessoryID'];?>">
+                            <input type="hidden" name="category_id" value="<?php echo $accessory['accessoryCategoryID'];?>">
+                            <input  id="product_submit" type="submit" value="Delete">
+                        </form>
+                    </td>
                 </tr>
                 <?php endforeach;?>
             </table>

@@ -5,9 +5,7 @@ Phase03
 mja65@njit.edu
 -->
 
-<?php
-    require_once('authenticate.php');
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +21,22 @@ mja65@njit.edu
 <body>
     <header>
         <h1>Sip & Stir</h1>
+        <?php
+            if(!isset($_SESSION)){
+                session_start();
+            }
+            
+            if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
+                $email=$_SESSION['email'];
+                $firstName=$_SESSION['firstName'];
+                $lastName=$_SESSION['lastName'];
+                echo "<h2 id='welcome_message'> Welcome $firstName $lastName ($email)</h2>";
+            }
+
+           
+
+ 
+        ?>
         <nav class="mainNav">
             <a href="home.php">Home</a> |
             <a href="product.php">Products</a> 
@@ -30,13 +44,13 @@ mja65@njit.edu
             <?php
                 
 
-               if(!isset($_SESSION['is_valid_admin'])){
-                
-                echo '<a class="log" href="login.php">log in</a>';
-               }else{
+               if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
                 echo '| <a href="shipping.php">Shipping</a> |';
                 echo '<a href="create.php">Create</a>' ;
                 echo '<a class="log" href="logout.php">log out</a>';
+                
+               }else{
+                echo '<a class="log" href="login.php">log in</a>';
                }
 
             ?>

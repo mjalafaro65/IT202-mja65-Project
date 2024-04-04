@@ -16,9 +16,9 @@
         $statement->closeCursor();
         
     }
-
-    addSitStirManager('mroberts@example.com','P@ssw0rd456','Jennifer', 'Smith');
-    addSitStirManager('jsmith@example.com','Qwerty123!','Michael', 'Roberts');
+     
+    addSitStirManager('mroberts@example.com','P@ssw0rd456','Michael', 'Roberts');
+    addSitStirManager('jsmith@example.com','Qwerty123!','Jennifer', 'Smith');
     addSitStirManager('aadams@example.com','Sunshine789$','Amanda', 'Adams');
 
 

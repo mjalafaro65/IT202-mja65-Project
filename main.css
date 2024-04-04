@@ -109,8 +109,9 @@ label {
 /* header */
 header{
     width: 1200px;
-    height: 110px;
+    height: 160px;
     padding-bottom: 30px;
+
 }
 
 .mainNav{
@@ -276,8 +277,14 @@ nav li{
     display: inline;
     padding: auto;
 }
+#welcome_message{
+    font-size: 10px;
+    float: right;
+    position: relative;
+    right: 100px;
+}
 
-.product_subheaders{
+.subheaders3{
     font-size: 20px;
 }
 
@@ -302,6 +309,17 @@ td{
     margin: 0;
     color: black;
 }
+#product_submit{
+    padding: 0px;
+    margin: 0px;
+}
+#product_form{
+   
+    margin: 0px;
+
+}
+
+
 
 
 .log{

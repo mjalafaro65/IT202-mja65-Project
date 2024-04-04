@@ -40,7 +40,20 @@ mja65@njit.edu
     </head>
     <body>
         <header>
+
             <h1>Sip & Stir</h1>
+
+            <!-- error mesage -->
+            <?php
+            
+            if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
+                $email=$_SESSION['email'];
+                $firstName=$_SESSION['firstName'];
+                $lastName=$_SESSION['lastName'];
+                echo "<h2 id='welcome_message'> Welcome $firstName $lastName ($email)</h2>";
+            }
+
+            ?>
 
             <!-- navigatinal bar -->
             <nav class="mainNav">
