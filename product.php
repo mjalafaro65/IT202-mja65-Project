@@ -13,10 +13,7 @@ mja65@njit.edu
 
 
 
-    //welcome message
-
-
-
+    
 
 
     $accessoryCategory_id= filter_input(INPUT_GET, 'accessoryCategory_id', FILTER_VALIDATE_INT);
@@ -71,6 +68,7 @@ mja65@njit.edu
     <header>
         <h1>Sip & Stir</h1>
         <?php
+        //welcome message
         if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
         $email=$_SESSION['email'];
         $firstName=$_SESSION['firstName'];

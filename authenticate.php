@@ -25,9 +25,9 @@ mja65@njit.edu
                 $statement1=$db->prepare($queryCategory);
                 $statement1->bindValue(':emailAddress', $email);
                 $statement1->execute();
-                $category=$statement1->fetch();
-                $firstName=$category['firstName'];
-                $lastName=$category['lastName'];
+                $column=$statement1->fetch();
+                $firstName=$column['firstName'];
+                $lastName=$column['lastName'];
                 $statement1->closeCursor();
 
 
