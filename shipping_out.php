@@ -5,9 +5,8 @@ Phase03
 mja65@njit.edu
 -->
 <?php
-    
-    require_once('authenticate.php');
 
+session_start();
     $first_name=filter_input(INPUT_POST,"first_name");
     $last_name=filter_input(INPUT_POST,"last_name");
     $street_address=filter_input(INPUT_POST,"street_address");
@@ -59,6 +58,10 @@ mja65@njit.edu
     //formatting
     $format_value="$".$declared_value;
     $format_dimensions=$package_dimension_l.'" X '.$package_dimension_w.'" X '.$package_dimension_h.'"';
+
+    if(!isset($_SESSION)){
+        session_start();
+    }
 ?>
 
 <html lang="en">
@@ -78,6 +81,10 @@ mja65@njit.edu
         <div>
         <header>
             <h1>Sip & Stir</h1>
+        
+        <!-- check log in to show pages -->
+        
+        
             <?php
             if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
                 $email=$_SESSION['email'];
@@ -101,7 +108,10 @@ mja65@njit.edu
                }
 
             ?>
+
         </nav>
+
+        
         <h2>Shipping Label</h2>
         </header>
         <main>
@@ -149,7 +159,7 @@ mja65@njit.edu
 
             </div>
 
-
+        
                 
 
         </main>

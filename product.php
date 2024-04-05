@@ -6,14 +6,9 @@ mja65@njit.edu
 -->
 
 <?php
-    session_start();
+
     require_once('njit_database.php');
     $db = getDB();
-
-
-
-
-    
 
 
     $accessoryCategory_id= filter_input(INPUT_GET, 'accessoryCategory_id', FILTER_VALIDATE_INT);
@@ -69,6 +64,11 @@ mja65@njit.edu
         <h1>Sip & Stir</h1>
         <?php
         //welcome message
+
+        if(!isset($_SESSION)){
+            session_start();
+        }
+
         if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
         $email=$_SESSION['email'];
         $firstName=$_SESSION['firstName'];
@@ -93,6 +93,13 @@ mja65@njit.edu
             ?>
         </nav>
         <h2>Product list</h2>
+        <?php
+                if(!empty($error)){
+                    echo "<p>";
+                    echo "Error: <br>".$error;
+                    echo "</p>";
+                }
+            ?>
     </header>
     <main>
         
@@ -123,13 +130,24 @@ mja65@njit.edu
                     <td><?php echo $accessory['description'];?></td>
                 <?php $priceFormatted="$".$accessory['price'];?>
                     <td><?php echo $priceFormatted?></td>
+
+
+
+                    <?php if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){ ?>
+                                    
                     <td >
                         <form id="product_form" action="deleteProduct.php" method="post">
                             <input type="hidden" name="accessory_id" value="<?php echo $accessory['accessoryID'];?>">
                             <input type="hidden" name="category_id" value="<?php echo $accessory['accessoryCategoryID'];?>">
+                              
                             <input  id="product_submit" type="submit" value="Delete">
-                        </form>
+                                
+                         </form>
                     </td>
+                    <?php }?>
+              
+
+
                 </tr>
                 <?php endforeach;?>
             </table>

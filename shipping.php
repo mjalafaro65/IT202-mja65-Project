@@ -7,7 +7,7 @@ mja65@njit.edu
 <?php
 
 
-    require_once('authenticate.php');
+
 
     // if not set, set to nothing
 
@@ -45,7 +45,9 @@ mja65@njit.edu
 
             <!-- error mesage -->
             <?php
-            
+            if(!isset($_SESSION)){
+                session_start();
+        }
             if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
                 $email=$_SESSION['email'];
                 $firstName=$_SESSION['firstName'];
@@ -72,17 +74,20 @@ mja65@njit.edu
 
             ?>
         </nav>
-            
+        <!-- check log in to show pages -->
+        <?php if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){?>
+
             <h2>Shipping</h>
         </header>
         <main>
             
             <!-- display error message -->
             <?php
+
                 if(!empty($error_message)){
-                    echo "<p>";
+                    
                     echo "Error: <br>".$error_message;
-                    echo "</p>";
+            
                 }
             ?>
 
@@ -203,7 +208,15 @@ mja65@njit.edu
             
             </form>
         </main>
-
+        <?php 
+        }else{
+            
+            echo "<br>";
+            echo "<p class='error'>Error: Must login to view Page</p>";
+        }
+               
+    
+        ?>
         <!-- footter with tittle adress and extra -->
         <footer>
             <h1>Sip and Stir</h1>

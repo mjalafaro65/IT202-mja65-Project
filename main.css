@@ -109,8 +109,8 @@ label {
 /* header */
 header{
     width: 1200px;
-    height: 160px;
-    padding-bottom: 30px;
+    height: 150px;
+    padding-bottom: 25px;
 
 }
 
@@ -278,10 +278,12 @@ nav li{
     padding: auto;
 }
 #welcome_message{
-    font-size: 10px;
+    font-size: 12px;
     float: right;
-    position: relative;
+    position: absolute;
     right: 100px;
+    bottom:80%;
+
 }
 
 .subheaders3{
@@ -330,6 +332,12 @@ td{
     background-color: #b09a65;
     border-radius: 20px;
 
+}
+
+
+/* errors */
+.error{
+    padding-bottom:250px;
 }
 
 

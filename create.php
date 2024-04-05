@@ -6,7 +6,7 @@ mja65@njit.edu
 -->
 
 <?php
-    require_once('authenticate.php');
+
     require_once('njit_database.php');
 
     if( !isset($price)) { $price = ''; }
@@ -26,6 +26,8 @@ mja65@njit.edu
     $statement->closeCursor();
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -47,14 +49,14 @@ mja65@njit.edu
         <?php
         if(!isset($_SESSION)){
                 session_start();
-            }
+        }
             
-            if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
-                $email=$_SESSION['email'];
-                $firstName=$_SESSION['firstName'];
-                $lastName=$_SESSION['lastName'];
-                echo "<h2 id='welcome_message'> Welcome $firstName $lastName ($email)</h2>";
-            }
+        if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){
+            $email=$_SESSION['email'];
+            $firstName=$_SESSION['firstName'];
+            $lastName=$_SESSION['lastName'];
+            echo "<h2 id='welcome_message'> Welcome $firstName $lastName ($email)</h2>";
+        }
 
         ?>
         <nav class="mainNav">
@@ -73,63 +75,72 @@ mja65@njit.edu
 
             ?>
         </nav>
+
+    <!-- check log in to show pages -->
+    <?php if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){?>
         <h2>Add Products</h2>
     </header>
 
-    <main>
-        <?php
-            if(!empty($error)){
-                echo "<p>";
-                echo "Error: <br>".$error;
-                echo "</p>";
-            }
-        ?>
-        <form action="create_validation.php" method="post">
-            <section>
-                <div>
-                    <label>Category:</label>
-                    <select class="box" name="accessoryCategory_id">
-                    <?php foreach ($categories as $category) : ?>
-                        <option value="<?php echo $category['accessoryCategoryID']; ?>">
-                            <?php echo $category['accessoryCategoryName']; ?>
-                        </option>
-                    <?php endforeach; ?>
-                    </select>
-                </div>
-                
+        <main>
+            <?php
+                if(!empty($error)){
+                    echo "<p>";
+                    echo "Error: <br>".$error;
+                    echo "</p>";
+                }
+            ?>
+            <form action="create_validation.php" method="post">
+                <section>
+                    <div>
+                        <label>Category:</label>
+                        <select class="box" name="accessoryCategory_id">
+                        <?php foreach ($categories as $category) : ?>
+                            <option value="<?php echo $category['accessoryCategoryID']; ?>">
+                                <?php echo $category['accessoryCategoryName']; ?>
+                            </option>
+                        <?php endforeach; ?>
+                        </select>
+                    </div>
+                    
 
-                <div>
-                    <label>Code:</label>
-                    <input class="box" type="text" name="code" value="<?php echo htmlspecialchars($code);?>">
-                </div>
-                
-                <div>
-                    <label>Name:</label>
-                    <input class="box" type="text" name="name" value="<?php echo htmlspecialchars($name);?>">
-                </div>
+                    <div>
+                        <label>Code:</label>
+                        <input class="box" type="text" name="code" value="<?php echo htmlspecialchars($code);?>">
+                    </div>
+                    
+                    <div>
+                        <label>Name:</label>
+                        <input class="box" type="text" name="name" value="<?php echo htmlspecialchars($name);?>">
+                    </div>
 
-                <div>
-                    <label>Description:</label>
-                    <textarea class="box" type="text" name="description" value="<?php echo htmlspecialchars($description);?>"></textarea>
-                </div>
-                
-                <div>
-                    <label>List Price:</label>
-                    <input class="box" type="text" name="price"  value='<?php echo htmlspecialchars($price);?>'>
-                </div>
-                
-                <span >
-                    <input class="button"  type="submit" value="Add Product"><br>
-                    </span>
+                    <div>
+                        <label>Description:</label>
+                        <textarea class="box" type="text" name="description" value="<?php echo htmlspecialchars($description);?>"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label>List Price:</label>
+                        <input class="box" type="text" name="price"  value='<?php echo htmlspecialchars($price);?>'>
+                    </div>
+                    
+                    <span >
+                        <input class="button"  type="submit" value="Add Product"><br>
+                        </span>
+
+                    
+                </section>
 
                 
-            </section>
+            </form>
+            <p><a href="product.php">View Product List</a></p>
+        </main>
+    <?php }else{
+        echo "<br>";
+        echo "<p class='error'>Error: Must login to view Page</p>";
+        
+    }
 
-            
-        </form>
-        <p><a href="product.php">View Product List</a></p>
-    </main>
-
+    ?>
     <footer>
         <h1>Sip and Stir</h1>
         <address>
