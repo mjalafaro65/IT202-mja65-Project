@@ -45,6 +45,8 @@ mja65@njit.edu
 
 <!-- the body section -->
 <body>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="delete.js"></script>
     <header>
         <h1>Sip & Stir</h1>
         <?php
@@ -90,7 +92,7 @@ mja65@njit.edu
                     echo "</p>";
                 }
             ?>
-            <form action="create_validation.php" method="post">
+            <form id="create_from" action="create_validation.php" method="post">
                 <section>
                     <div>
                         <label>Category:</label>
@@ -130,14 +132,14 @@ mja65@njit.edu
                         <input id="list_price" class="box" type="text" name="price"  value='<?php echo htmlspecialchars($price);?>'>
                         <span></span>
                     </div>
+                    <div style="display: inline;" >
+                            <input class="button"   type="submit" value="Add Product">
                     
-                    <span >
-                        <input class="button"  type="submit" value="Add Product"><br>
-                    </span>
-                    <span >
-                        <input id="reset_button" class="button"  type="submit" value="Reset"><br>
-    
-                    </span>
+                            <input id="reset_button" class="button"  type="reset" value="Reset">
+        
+                        
+                    </div>
+                    
 
                     
                 </section>
@@ -154,8 +156,7 @@ mja65@njit.edu
 
     ?>
 
-<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    <script src="delete.js"></script>
+
     <footer>
         <h1>Sip and Stir</h1>
         <address>

@@ -24,7 +24,7 @@ mja65@njit.edu
         
     }
     if($price==FALSE){
-        $error.="Price must be in decimal form";
+        $error.="Price must be in decimal form <br>";
 
     }
 
