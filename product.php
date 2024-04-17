@@ -30,6 +30,7 @@ mja65@njit.edu
     $statement2->execute();
     $categories= $statement2->fetchAll();
     $statement2->closeCursor();
+
     //     //debugging
     // echo "<pre>";
     // print_r($categories);
@@ -57,6 +58,8 @@ mja65@njit.edu
 
     <title>Sip & Stir</title>
     <link rel="icon" href="images/tea-cup.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="delete.js"></script>
 
 </head>
 <body>
@@ -125,7 +128,7 @@ mja65@njit.edu
                 </tr>
                 <?php foreach($accessories as $accessory):?>
                 <tr>
-                    <td><?php echo $accessory['accessoryCode'];?></td>
+                    <td><a href="details.php?accessoryCode=<?php echo $accessory['accessoryID'];?>"><?php echo $accessory['accessoryCode'];?></td>
                     <td><?php echo $accessory['accessoryName'];?></td>
                     <td><?php echo $accessory['description'];?></td>
                 <?php $priceFormatted="$".$accessory['price'];?>
@@ -136,7 +139,7 @@ mja65@njit.edu
                     <?php if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){ ?>
                                     
                     <td >
-                        <form id="product_form" action="deleteProduct.php" method="post">
+                        <form id="deleteProduct_form" action="deleteProduct.php" method="post">
                             <input type="hidden" name="accessory_id" value="<?php echo $accessory['accessoryID'];?>">
                             <input type="hidden" name="category_id" value="<?php echo $accessory['accessoryCategoryID'];?>">
                               
@@ -153,10 +156,8 @@ mja65@njit.edu
             </table>
         </section>
 
-
-       
-
     </main>
+        
     <footer>
         <h1>Sip and Stir</h1>
         <address>

@@ -40,6 +40,7 @@ mja65@njit.edu
 
     <title>Sip & Stir</title>
     <link rel="icon" href="images/tea-cup.png">
+    
 </head>
 
 <!-- the body section -->
@@ -94,6 +95,9 @@ mja65@njit.edu
                     <div>
                         <label>Category:</label>
                         <select class="box" name="accessoryCategory_id">
+
+                        <!-- validation if submited in select category -->
+                            <option>Select Category</option>
                         <?php foreach ($categories as $category) : ?>
                             <option value="<?php echo $category['accessoryCategoryID']; ?>">
                                 <?php echo $category['accessoryCategoryName']; ?>
@@ -105,27 +109,35 @@ mja65@njit.edu
 
                     <div>
                         <label>Code:</label>
-                        <input class="box" type="text" name="code" value="<?php echo htmlspecialchars($code);?>">
+                        <input  id="code" class="box" type="text" name="code" value="<?php echo htmlspecialchars($code);?>">
+                        <span></span>
                     </div>
                     
                     <div>
                         <label>Name:</label>
-                        <input class="box" type="text" name="name" value="<?php echo htmlspecialchars($name);?>">
+                        <input id="name" class="box" type="text" name="name" value="<?php echo htmlspecialchars($name);?>">
+                        <span></span>
                     </div>
 
                     <div>
                         <label>Description:</label>
-                        <textarea class="box" type="text" name="description" value="<?php echo htmlspecialchars($description);?>"></textarea>
+                        <textarea id="description" class="box" type="text" name="description" value="<?php echo htmlspecialchars($description);?>"></textarea>
+                        <span></span>
                     </div>
                     
                     <div>
                         <label>List Price:</label>
-                        <input class="box" type="text" name="price"  value='<?php echo htmlspecialchars($price);?>'>
+                        <input id="list_price" class="box" type="text" name="price"  value='<?php echo htmlspecialchars($price);?>'>
+                        <span></span>
                     </div>
                     
                     <span >
                         <input class="button"  type="submit" value="Add Product"><br>
-                        </span>
+                    </span>
+                    <span >
+                        <input id="reset_button" class="button"  type="submit" value="Reset"><br>
+    
+                    </span>
 
                     
                 </section>
@@ -141,6 +153,9 @@ mja65@njit.edu
     }
 
     ?>
+
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="delete.js"></script>
     <footer>
         <h1>Sip and Stir</h1>
         <address>
