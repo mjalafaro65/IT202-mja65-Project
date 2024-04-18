@@ -128,10 +128,10 @@ mja65@njit.edu
                 </tr>
                 <?php foreach($accessories as $accessory):?>
                 <tr>
-                    <td><a href="details.php?accessoryCode=<?php echo $accessory['accessoryID'];?>"><?php echo $accessory['accessoryCode'];?></td>
+                    <td><a href="details.php?accessoryID=<?php echo $accessory['accessoryID'];?>"><?php echo $accessory['accessoryCode'];?></a></td>
                     <td><?php echo $accessory['accessoryName'];?></td>
                     <td><?php echo $accessory['description'];?></td>
-                <?php $priceFormatted="$".$accessory['price'];?>
+                    <?php $priceFormatted="$".$accessory['price'];?>
                     <td><?php echo $priceFormatted?></td>
 
 
