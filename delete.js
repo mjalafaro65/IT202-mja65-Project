@@ -12,6 +12,11 @@ $(document).ready( () => {
 
     });
 
+    ///////fixxxxx
+    $("#img").mouseover( ()=>{
+        $("#img").addClass('blackAndWhite')
+    })
+
 
     //create page
     $("#create_from").submit( event => {

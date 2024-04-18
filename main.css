@@ -343,6 +343,12 @@ td{
 /* create pages */
 
 
+/* //////fixxx */
+.blackAndWhite{
+    -webkit-filter: grayscale(100%);
+}
+
+
 
 
 
