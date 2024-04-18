@@ -70,8 +70,8 @@
 
             ?>
         </nav>
-        <!-- //////////////////////////////////dont forgwt -->
-        <h2 id="product_name"><?php echo $productDetails['accessoryName']?></h2>
+  
+        <h2 ><?php echo $productDetails['accessoryName']?></h2>
 
         
      

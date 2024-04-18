@@ -12,7 +12,6 @@ $(document).ready( () => {
 
     });
 
-    ///////fixxxxx
     $("#img").mouseover( ()=>{
         $("#img").addClass('blackAndWhite')
     })
