@@ -86,7 +86,7 @@ mja65@njit.edu
 
                 if(!empty($error_message)){
                     
-                    echo "Error: <br>".$error_message;
+                    echo "Error:<p id='label_error_message'>".$error_message."</p>";
             
                 }
             ?>

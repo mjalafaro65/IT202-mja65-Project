@@ -38,7 +38,7 @@
 </head>
 
 <body>
-<header>
+    <header>
         <h1>Sip & Stir</h1>
         <?php
         //welcome message
@@ -70,48 +70,57 @@
 
             ?>
         </nav>
+
+        <?php if(!$productDetails===false){?>
   
-        <h2 ><?php echo $productDetails['accessoryName']?></h2>
+            <h2 ><?php echo $productDetails['accessoryName']?></h2>
 
-        
-     
-        
-
-
+        <?php }
+        ?>
 
     </header>
-    <main>
-        <?php
-            if(count($productDetails)===0){
+    <main id="details_main">
+       
+        <?php if(!$productDetails===false){?>
+        
+         <table >
+            <td>Accessory Name: <?php echo $productDetails['accessoryName']?></td>
+            <td>Accessory Price: <?php echo $productDetails['price']?></td>
+            <td>Accessory Description: <?php echo $productDetails['description']?></td>
+
+                <td>Accessory Code: <?php echo $productDetails['accessoryCode']?></td>
+                <td>Accessory ID: <?php echo $productDetails['accessoryID']?></td>
+                <td>Accessory Category ID: <?php echo $productDetails['accessoryCategoryID']?></td>
+                
+                <td>Accessory in stock: <?php echo $productDetails['inStock']?></td>
+                
+                <td>Accessory Date Created: <?php echo $productDetails['dateCreated']?></td>
+
+            </table>
+            <div id="details_img_container">
+                <img id="detail_img" src="images\<?php echo $productDetails['accessoryID']?>.jpg" alt="Accessory image" >
+            </div>
+
+        <?php      
+            }else{  
+
                 echo "<br>";
                 echo "<p>Error: Accessory doesn't not exist<p>";
                 echo "<br>";
                 echo "<a href='product.php'>Go to Product List</a>";
-            }  
-            
-            
-            foreach ($productDetails as $key => $value) {
-                echo "$key: $value<br>";
             }
         ?>
-
         
-
-        <!-- <p>Accessory Name: <?php echo $productDetails['accessoryName']?></p>
-        <p>Accessory Code: <?php echo $productDetails['accessoryCode']?></p>
-        <p>Accessory Code: <?php echo $productDetails['accessoryCode']?></p> -->
-
-
     </main>
     <footer>
-            <h1>Sip and Stir</h1>
-            <address>
-                Sip & Stir<br>
-                21 Brick Ave<br>
-                Newark, NJ, 04894<br>
-            </address>
-            <h5>@ Sip and Stir, 2024</h5>
+        <h1>Sip and Stir</h1>
+        <address>
+            Sip & Stir<br>
+            21 Brick Ave<br>
+            Newark, NJ, 04894<br>
+        </address>
+        <h5>@ Sip and Stir, 2024</h5>
             
-        </footer> 
+    </footer> 
 </body>
 </html>

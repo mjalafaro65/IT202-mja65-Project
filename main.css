@@ -39,7 +39,7 @@ body{
     margin: 8px;
 }
 
-img{
+.home_img{
     border-radius: 10px;
     height:200px;
     width: 250px;
@@ -104,6 +104,10 @@ label {
     border-radius: 10px;
 }
 
+#label_error_message{
+    position: absolute;
+}
+
 
 
 /* header */
@@ -158,10 +162,10 @@ nav a:visited{
 
 main{
     width: 1200px;
-    height: 1000px;
+    height: 900px;
 }
 
-main p{
+#home_p{
     height: 150px;
 }
 
@@ -337,16 +341,36 @@ td{
 
 /* errors */
 .error{
+   
     padding-bottom:250px;
 }
 
-/* create pages */
 
 
-/* //////fixxx */
+
+/* detail page  */
 .blackAndWhite{
-    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
+
+#details_img_container{
+    text-align: center;
+}
+#detail_img{
+    display: inline;
+    border-radius: 10px;
+    max-width: 500px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+}
+
+#details_main{
+    height: 680px;
+}
+
+
+
 
 
 

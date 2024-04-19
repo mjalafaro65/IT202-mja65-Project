@@ -139,7 +139,7 @@ mja65@njit.edu
                     <?php if(isset($_SESSION['is_valid_admin']) && $_SESSION['is_valid_admin']){ ?>
                                     
                     <td >
-                        <form id="deleteProduct_form" action="deleteProduct.php" method="post">
+                        <form class="deleteProduct_form" action="deleteProduct.php" method="post">
                             <input type="hidden" name="accessory_id" value="<?php echo $accessory['accessoryID'];?>">
                             <input type="hidden" name="category_id" value="<?php echo $accessory['accessoryCategoryID'];?>">
                               

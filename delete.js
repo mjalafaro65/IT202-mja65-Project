@@ -1,20 +1,21 @@
 $(document).ready( () => {
 
     //product page confirmation
-    $("#deleteProduct_form").submit( (event) => {
+    $(".deleteProduct_form").submit( (event) => {
 
         const confirmDelete = confirm("Are you sure you want to delete this product?");
-        if(confirmDelete) {
-            $("#deleteProduct_form").submit();
-        } else {
+        if(!confirmDelete) {
             event.preventDefault();
         }
 
     });
 
-    $("#img").mouseover( ()=>{
-        $("#img").addClass('blackAndWhite')
+
+    $("#detail_img").hover( ()=>{
+        $("#detail_img").toggleClass('blackAndWhite')
+        
     })
+
 
 
     //create page
@@ -30,25 +31,32 @@ $(document).ready( () => {
                 isValid=false;
 
             }else{
-                if(parseInt(value)===NaN){
-                
+                if(!(id=="#list_price")){
+                    console.log(value.length)
                     if(value.length<min){
-                        $(id).next().text("This field should have a minimum of"+ min+"characters");
+                        $(id).next().text("This field should have a minimum of "+ min +" characters")
+                            .css("fontSize","12px");
                         isValid=false;
                         
                     }
                     if(value.length>max){
-                        $(id).next().text("This field should have a maximum of"+ max+"characters");
+                        $(id).next().text("This field should have a maximum of "+ max +" characters")
+                             .css("fontSize","12px");
                         isValid=false;
                     }
                 }else{
+                    console.log("go in")
                     if(value<=min){
-                        $(id).next().text("This field should not be negative or zero");
+                        $(id).next().text("This field should not be negative or zero")
+                            .css("fontSize","12px");
                         isValid=false;
+                          
                         
                     }
-                    if(value>max){
-                        $(id).next().text("This field should not exceed $100,000.");
+                    if(value>=max){
+                        $(id).next().text("This field should not exceed $100,000.")
+                            .css("fontSize","12px");
+                            
                         isValid=false;
                     }
                 }        

@@ -36,7 +36,7 @@ mja65@njit.edu
                 $_SESSION['firstName'] = $firstName;
                 $_SESSION['lastName'] = $lastName;
                 
-                include_once('home.php');
+                header("Location: home.php");
 
             } else {
                   // Authentication failed-> error message

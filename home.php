@@ -56,8 +56,8 @@ mja65@njit.edu
             ?>
         </nav>
     </header>
-    <main>
-        <p>Welcome to Sip and Stir. Sip and Stir is your go-to destination for all things coffee and tea. Since our opening, we've been dedicated to providing you with the finest brewing essentials. If you're in the mood for a cup of coffee from our electric kettles or a soothing pot of teas brewed with our quality French presses, we've got you covered. Our collection also includes must-haves like tea infuser sets, coffee grinders, and cold brew coffee makers. At Sip and Stir, our mission is to make every sip and stir a moment of joy.</p>
+    <main >
+        <p id="home_p">Welcome to Sip and Stir. Sip and Stir is your go-to destination for all things coffee and tea. Since our opening, we've been dedicated to providing you with the finest brewing essentials. If you're in the mood for a cup of coffee from our electric kettles or a soothing pot of teas brewed with our quality French presses, we've got you covered. Our collection also includes must-haves like tea infuser sets, coffee grinders, and cold brew coffee makers. At Sip and Stir, our mission is to make every sip and stir a moment of joy.</p>
 
     <div class="image_container">
 
