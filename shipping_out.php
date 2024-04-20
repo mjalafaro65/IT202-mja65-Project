@@ -22,6 +22,19 @@ session_start();
 
     $error_message='';
 
+    if($first_name == NULL || $last_name ==NULL||$order_number == NULL|| $order_number == false||$state==NULL||$city==NULL||$street_address==NULL){
+        $error_message.="Missing information <br>";
+        
+    }
+
+    // if(empty($state)||empty($city)||empty($street_address)){
+    //     $error_message.="Check address fields <br>";
+    // }
+    // if(empty($ship_date)){
+    //     $error_message.="Enter a ship date <br>";
+
+    // }
+
     //validate declared value 
     if($declared_value>=1000){
         $error_message.='Declared value must be less than $1,000<br>';
@@ -29,23 +42,13 @@ session_start();
 
     //validate package dimensions
     if ($package_dimension_l>=36 || $package_dimension_w>=36 ||$package_dimension_h>=36){
-        $error_message.="Dimensions of package can't be more than 36 inches<br>";
+        $error_message.="Dimensions can't be more than 36 inches<br>";
 
     }
 
-    //validate date
-    if(empty($ship_date)){
-        $error_message.="Enter a ship date <br>";
-
-    }
-
-    //validate state
-    if(empty($state)){
-        $error_message.="Enter a state <br>";
-    }
 
     //validate zip code
-    if (strlen($zip_code)!= 5 || !is_numeric($zip_code)){
+    if ((!$zip_code==Null)&&(strlen($zip_code)!= 5 || !is_numeric($zip_code))){
         $error_message.="Enter valid ship zip code <br>";
 
     }
@@ -53,7 +56,7 @@ session_start();
     if($error_message != '') {
         include('shipping.php');
         exit();
-      }
+    }
 
     //formatting
     $format_value="$".$declared_value;

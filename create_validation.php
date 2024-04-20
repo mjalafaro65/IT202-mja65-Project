@@ -72,6 +72,7 @@ mja65@njit.edu
     $statement->closeCursor();
 
     $success_message="<p>Success you have entered  $success product </p>";
+
     
        
 
@@ -129,6 +130,7 @@ mja65@njit.edu
          ?>
         
         <p><a href="product.php">View product List</a></p>
+        <p><a href="create.php">Add Another</a></p>
 
 
        

@@ -106,6 +106,7 @@ label {
 
 #label_error_message{
     position: absolute;
+    font-size: 12px;
 }
 
 

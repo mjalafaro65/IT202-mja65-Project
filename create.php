@@ -96,15 +96,15 @@ mja65@njit.edu
                 <section>
                     <div>
                         <label>Category:</label>
-                        <select class="box" name="accessoryCategory_id">
+                        <select class="box" id="category" name="accessoryCategory_id">
 
-                        <!-- validation if submited in select category -->
-                            <option>Select Category</option>
-                        <?php foreach ($categories as $category) : ?>
-                            <option value="<?php echo $category['accessoryCategoryID']; ?>">
-                                <?php echo $category['accessoryCategoryName']; ?>
-                            </option>
-                        <?php endforeach; ?>
+                            <!-- validation if submited in select category -->
+                                <option>Select Category</option>
+                            <?php foreach ($categories as $category) : ?>
+                                <option value="<?php echo $category['accessoryCategoryID']; ?>">
+                                    <?php echo $category['accessoryCategoryName']; ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     
@@ -140,13 +140,14 @@ mja65@njit.edu
                         
                     </div>
                     
-
-                    
+    
                 </section>
 
                 
             </form>
             <p><a href="product.php">View Product List</a></p>
+            
+
         </main>
     <?php }else{
         echo "<br>";

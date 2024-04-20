@@ -25,9 +25,10 @@ $(document).ready( () => {
         function validate(min,max,id){
            
             const value=$(id).val();
-            console.log(value);
+    
             if(value===""){
-                $(id).next().text("This field is required");
+                $(id).next().text("This field is required")
+                     .css("fontSize","12px");
                 isValid=false;
 
             }else{
@@ -64,7 +65,7 @@ $(document).ready( () => {
 
                 
         }
-
+       
         validate(4,10,"#code");
         validate(10,100,"#name");
         validate(10,255,"#description");
@@ -84,14 +85,12 @@ $(document).ready( () => {
         // clear text boxes
 
         $("#category").val("");
-
         $("#code").val("");
         $("#name").val("");
         $("#description").val("");
         $("#list_price").val("");
 
-
-        // reset span elemens
+       
         $("#category").next().text("*");
 
         $("#code").next().text("*");
@@ -99,7 +98,6 @@ $(document).ready( () => {
         $("#description").next().text("*");
         $("#list_price").next().text("*");
 
-       
         $("#category").focus();
 
 
