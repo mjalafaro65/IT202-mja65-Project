@@ -1,3 +1,9 @@
+<!-- Maria Alfaro
+4/19/24
+It202-004
+Phase03
+mja65@njit.edu
+-->
 
 <?php
     require_once('njit_database.php');

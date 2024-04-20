@@ -1,3 +1,11 @@
+// Maria Alfaro
+// 4/19/24
+// It202-004
+// Phase03
+// mja65@njit.edu
+
+
+
 $(document).ready( () => {
 
     //product page confirmation
@@ -46,7 +54,6 @@ $(document).ready( () => {
                         isValid=false;
                     }
                 }else{
-                    console.log("go in")
                     if(value<=min){
                         $(id).next().text("This field should not be negative or zero")
                             .css("fontSize","12px");
