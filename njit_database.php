@@ -10,7 +10,7 @@ mja65@njit.edu
     function getDB() {
         $dsn = 'mysql:host=sql1.njit.edu;port=3306;dbname=mja65';
         $username = 'mja65';
-        $password = '"MarioJose1"';
+        $password = '"######"';
     
         try {
             $db = new PDO($dsn, $username, $password);
